@@ -4,14 +4,62 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body{
+            overflow-x: hidden;
+        }
+
+        header{
+            background-color: #407ceb;
+            color: #fff;
+            padding: .5rem 2rem;
+        }
+
+        .login-form{
+            background: #fff;
+            padding: 2rem 0rem;
+            width: 50%;
+            transform: translate(45%, 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn{
+            margin-top: 1rem;
+            padding: .25rem 1rem;
+            width: 10rem;
+        }
+
+        .btn-primary{
+            background: #407ceb;
+        }
+
+        .btn-primary:hover{
+            background: #335fb1;
+            
+        }
+    </style>
 </head>
-<body style="margin-top:30px; margin-left:100px">
-<form method="post" action="">
+<body>
+    <header>
+        <div>
+            <h4 class="nav-title">Sales Approver</h4>
+        </div>
+    </header>
+<form method="post" action="" class="login-form">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit" class="btn btn-dark">Login</button><br><br>
-
+    <button type="submit" class="btn btn-primary">Login</button>
+    <br>
 </form>
 </body>
 </html>
