@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Golive Table</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Client Name</th>
+        <th>Request Synopsis</th>
+        <th>Request Create Date</th>
+        <th>Target Live Date</th>
+        <th>Current Status</th>
+        <th>Ontime status</th>
+        <th>Est. Date by IT</th>
+        <th>UAT date</th>
+        <th>Actual Live Date</th>
+        <th>Golive Status</th>
+        <th>Give Golive status</th>
+
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{i.client_name}}</td>
+        <td>{{i.request_synopsis}}</td>
+        <td>{{i.request_created_date}}</td>
+        <td>{{i.target_launch_date}}</td>
+        <td>{{i.current_status}}</td>
+        <td>{{i.ontime_status}}</td>
+        <td>{{i.estimated_date}}</td>
+        <td>{{i.uat_date}}</td>
+        <td>{{i.actual_live_date}}</td>
+        <td>{{i.action}}</td>
+        <td><form method="post" action="{% url 'infofill:golive' i.id %}">
+            {% csrf_token %}
+            {% if i.action == 'Live' or i.action == 'Stop' %}{% endif %}
+                {% if i.action == 'Hold' %}
+                    <input type="submit" name="_live" value="Live">
+                    <input type="submit" name="_hold" value="Unhold">
+                    <input type="submit" name="_stop" value="Stop">
+                {% endif %}
+                {% if i.action == '' or i.action == None %}
+                    <input type="submit" name="_live" value="Live">
+                    <input type="submit" name="_hold" value="Hold">
+                    <input type="submit" name="_stop" value="Stop">
+                 {% endif %}
+
+        </form></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
