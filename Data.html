@@ -81,13 +81,15 @@
             transition: all .3s ease-in-out;
         }
 
-        .add-btn{
+        .navbar .nav .nav-items a.add-btn{
             border-bottom: 2px solid transparent;
+            border-radius: 10px;
             transition: all .3s ease-in-out;
         }
 
-        .add-btn:hover{
+        .navbar .nav .nav-items a.add-btn:hover{
             border-bottom: 2px solid #fff;
+            border-radius: 0;
             transition: border .3s ease-in-out;
         }
 
@@ -125,10 +127,10 @@
         </div>
         <nav class="navbar">
             <ul class="nav">
-                <li class="nav-items add-btn">
-                    <a href="{% url 'infofill:form' %}" >
+                <li class="nav-items">
+                    <a href="{% url 'infofill:form' %}" class="add-btn" >
                         <i class="fas fa-plus"></i>
-                        Add new clients</a>
+                        Add clients</a>
                 </li>
                 <li class="nav-items">
                     <a href="{% url 'infofill:logout1' %}" class="log-li"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
