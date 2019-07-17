@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>For user 2</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/8aa13c88ab.js"></script>
-    
+
+    <title>Golive Table</title>
+
     <style>
         html,
         body{
@@ -97,53 +98,40 @@
             color: #fff;
             font-weight: 600;
         }
-        
-        .btn-mail{
-            text-decoration: none;
-            color: #fff;
-            background: #e7692f;
-            border: 2px solid #e7692f;
-            border-radius: 10px;
-            padding: .3rem 1rem;
-            display: block;
-            margin-top: 1rem;
-            width: 15rem;
-            transition: all .3s ease-in-out;
-        }
 
-        .btn-mail:hover{
-            text-decoration: none;
+        .btn-action{
+            background: none;
+            border: none;
+            border: 2px solid #333;
+            border-radius: 10px;
             color: #333;
-            background: none;
-            transition: all .3s ease-in-out;
+            padding: .5rem 1rem;
+            transition: all .2s ease-out;
         }
 
-        .date-form{
-            display: flex;
+        .btn-action:hover{
+            transition: all .2s ease-in;
         }
 
-        input[type='date']{
-            border: none;
-            background: none;
-            border: 1px solid #333;
-            border-radius: 10px;
-            width: 10rem;
+        .btn-action.fa-wifi:hover{
+            background: #4664eb;
+            border: 2px solid #4664eb;
+            color: #fff;
         }
 
-        .btn-save{
-            border: none;
-            appearance: none;
-            background: none;
-            color: #6382d8;
-            transition: all 0.2s ease-out;
+        .btn-action.fa-ban:hover{
+            background: #fd3e3e;
+            border: 2px solid #fd3e3e;
+            color: #fff;
         }
 
-        .btn-save:hover{
-            color: #4d6bbd;
-            transition: all 0.2s ease-in;
+        .btn-action.fa-play:hover,
+        .btn-action.fa-pause:hover{
+            background: #333;
+            border: 2px solid #333;
+            color: #fff;
         }
     </style>
-
 
 </head>
 <body>
@@ -154,12 +142,12 @@
 
     <header>
         <div class="head-title">
-            <h4>Client List</h4>
+            <h4>Live Status Updation</h4>
         </div>
         <nav class="navbar">
             <ul class="nav">
                 <li class="nav-items">
-                    <a href="{% url 'infofill:logout3' %}"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
+                    <!-- <a href="{% url 'infofill:logout3' %}"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a> -->
                 </li>
             </ul>
         </nav>
@@ -167,43 +155,51 @@
 
     <div class="container-fluid cont">
         <table border=".5px" class="client-details" cellpadding="4">
-        <tr>
-            <th>Client name</th>
-            <th>Request Synopsis</th>
-            <th>Request receive date</th>
-            <th>Target launch date</th>
-            <th>Estimated Date</th>
-            <th>Actual live date</th>
-            <th>Current status</th>
-            <th>Approval</th>
-            <th>Remarks</th>
-            <th>Action</th>
-            <th>Set estimated Date</th>
-        </tr>
+            <tr>
+                <th>Client Name</th>
+                <th>Request Synopsis</th>
+                <th>Request Create Date</th>
+                <th>Target Live Date</th>
+                <th>Current Status</th>
+                <th>Ontime status</th>
+                <th>Est. Date by IT</th>
+                <th>UAT date</th>
+                <th>Actual Live Date</th>
+                <th>Golive Status</th>
+                <th>Give Golive status</th>
+
+            </tr>
             {% for i in data %}
-                <tr>
-                    <td>{{i.client_name}}</td>
-                    <td>{{i.request_synopsis}}</td>
-                    <td>{{i.request_created_date}}</td>
-                    <td>{{i.target_launch_date}}</td>
-                    <td>{{i.estimated_date}}</td>
-                    <td>{{i.actual_live_date}}</td>
-                    <td>{{i.current_status}}</td>
-                    <td>{{i.approval}}</td>
-                    <td>{{i.remarks}}</td>
-                    <td>{{i.action}}</td>
-                    <td>
-                        <form method="post" action="{% url 'infofill:estdate' i.id %}" class="date-form">{% csrf_token %}
-                            <input type="date" name="_date" value="Date">
-                            <input type="submit" name="_dateSubmit" value="&#xf0c7" class="fas fa-save btn-save">
-                        </form>
-                    </td>
-    <!--                <td><a href="/admin/infofill/fillup/{{i.id}}/change/">Set Est.Date</a></td>-->
-                </tr>
+            <tr>
+                <td>{{i.client_name}}</td>
+                <td>{{i.request_synopsis}}</td>
+                <td>{{i.request_created_date}}</td>
+                <td>{{i.target_launch_date}}</td>
+                <td>{{i.current_status}}</td>
+                <td>{{i.ontime_status}}</td>
+                <td>{{i.estimated_date}}</td>
+                <td>{{i.uat_date}}</td>
+                <td>{{i.actual_live_date}}</td>
+                <td>{{i.action}}</td>
+                <td><form method="post" action="{% url 'infofill:golive' i.id %}">
+                    {% csrf_token %}
+                    {% if i.action == 'Live' or i.action == 'Stop' %}{% endif %}
+                        {% if i.action == 'Hold' %}
+                            <input type="submit" name="_live" value="&#xf1eb Live" class="fas fa-wifi btn-action">
+                            <input type="submit" name="_hold" value="&#xf04b Unhold" class="fas fa-play btn-action">
+                            <input type="submit" name="_stop" value="&#xf05e Stop" class="fas fa-ban btn-action">
+                        {% endif %}
+                        {% if i.action == '' or i.action == None %}
+                            <input type="submit" name="_live" value="&#xf1eb Live" class="fas fa-wifi btn-action">
+                            <input type="submit" name="_hold" value="&#xf04c Hold" class="fas fa-pause btn-action">
+                            <input type="submit" name="_stop" value="&#xf05e Stop" class="fas fa-ban btn-action">
+                        {% endif %}
+
+                </form></td>
+            </tr>
             {% endfor %}
         </table>
-        <a href="{% url 'infofill:email1' %}" class="btn-mail"><i class="fas fa-paper-plane send-icon"></i>Send email after saving</a>
-
     </div>
+
 </body>
 </html>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>For user 2</title>
+    <title>UAT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/8aa13c88ab.js"></script>
-    
+
     <style>
         html,
         body{
@@ -97,6 +97,28 @@
             color: #fff;
             font-weight: 600;
         }
+
+        input[type='date']{
+            border: none;
+            background: none;
+            border: 1px solid #333;
+            padding: 0 .5rem;
+            border-radius: 10px;
+            width: 10rem;
+        }
+
+        .btn-save{
+            border: none;
+            appearance: none;
+            background: none;
+            color: #6382d8;
+            transition: all 0.2s ease-out;
+        }
+
+        .btn-save:hover{
+            color: #4d6bbd;
+            transition: all 0.2s ease-in;
+        }
         
         .btn-mail{
             text-decoration: none;
@@ -117,34 +139,7 @@
             background: none;
             transition: all .3s ease-in-out;
         }
-
-        .date-form{
-            display: flex;
-        }
-
-        input[type='date']{
-            border: none;
-            background: none;
-            border: 1px solid #333;
-            border-radius: 10px;
-            width: 10rem;
-        }
-
-        .btn-save{
-            border: none;
-            appearance: none;
-            background: none;
-            color: #6382d8;
-            transition: all 0.2s ease-out;
-        }
-
-        .btn-save:hover{
-            color: #4d6bbd;
-            transition: all 0.2s ease-in;
-        }
     </style>
-
-
 </head>
 <body>
 
@@ -154,12 +149,12 @@
 
     <header>
         <div class="head-title">
-            <h4>Client List</h4>
+            <h4>UAT Date Updation</h4>
         </div>
         <nav class="navbar">
             <ul class="nav">
                 <li class="nav-items">
-                    <a href="{% url 'infofill:logout3' %}"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
+                    <a href="/log4uat"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
                 </li>
             </ul>
         </nav>
@@ -167,43 +162,42 @@
 
     <div class="container-fluid cont">
         <table border=".5px" class="client-details" cellpadding="4">
-        <tr>
-            <th>Client name</th>
-            <th>Request Synopsis</th>
-            <th>Request receive date</th>
-            <th>Target launch date</th>
-            <th>Estimated Date</th>
-            <th>Actual live date</th>
-            <th>Current status</th>
-            <th>Approval</th>
-            <th>Remarks</th>
-            <th>Action</th>
-            <th>Set estimated Date</th>
-        </tr>
+            <tr>
+                <th>Client Name</th>
+                <th>Request Synopsis</th>
+                <th>Request Create Date</th>
+                <th>Target Launch Date</th>
+                <th>Est. Date by IT</th>
+                <th>Ontime Status</th>
+                <th>Current Status</th>
+                <th>Remarks</th>
+                <th>Actual Live date</th>
+                <th>UAT Date</th>
+                <th>Give UAT Date</th>
+            </tr>
             {% for i in data %}
-                <tr>
-                    <td>{{i.client_name}}</td>
-                    <td>{{i.request_synopsis}}</td>
-                    <td>{{i.request_created_date}}</td>
-                    <td>{{i.target_launch_date}}</td>
-                    <td>{{i.estimated_date}}</td>
-                    <td>{{i.actual_live_date}}</td>
-                    <td>{{i.current_status}}</td>
-                    <td>{{i.approval}}</td>
-                    <td>{{i.remarks}}</td>
-                    <td>{{i.action}}</td>
-                    <td>
-                        <form method="post" action="{% url 'infofill:estdate' i.id %}" class="date-form">{% csrf_token %}
-                            <input type="date" name="_date" value="Date">
-                            <input type="submit" name="_dateSubmit" value="&#xf0c7" class="fas fa-save btn-save">
-                        </form>
-                    </td>
-    <!--                <td><a href="/admin/infofill/fillup/{{i.id}}/change/">Set Est.Date</a></td>-->
-                </tr>
+            <tr>
+                <td>{{i.client_name}}</td>
+                <td>{{i.request_synopsis}}</td>
+                <td>{{i.request_created_date}}</td>
+                <td>{{i.target_launch_date}}</td>
+                <td>{{i.estimated_date}}</td>
+                <td>{{i.ontime_status}}</td>
+                <td>{{i.current_status}}</td>
+                <td>{{i.remarks}}</td>
+                <td>{{i.actual_live_date}}</td>
+                <td>{{i.uat_date}}</td>
+                <td><form method="post" action="{% url 'infofill:uatdate' i.id %}">
+                    {% csrf_token %}
+                    <input type="date" name="_date">
+                    <input type="submit" name="_givedate" value="&#xf0c7" class="fas fa-save btn-save">
+                </form></td>
+            </tr>
             {% endfor %}
         </table>
         <a href="{% url 'infofill:email1' %}" class="btn-mail"><i class="fas fa-paper-plane send-icon"></i>Send email after saving</a>
-
     </div>
+
+
 </body>
 </html>

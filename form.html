@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/8aa13c88ab.js"></script>
+
+    <style>
+        html,
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            /* overflow-x: hidden; */
+            background: #fff;
+        }
+
+        .logo{
+            background-color: #fff;
+            color: #fff;
+            padding: .5rem 2rem;
+        }
+
+        header{
+            display: flex;
+            background: #e7692f;
+            color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 80px;
+            left: 0;
+        }
+
+        .head-title{
+            margin-top: .5rem;
+            padding: .5rem 1rem;
+            flex: 1;
+        }
+
+        .navbar{
+            flex: flex-end;
+        }
+
+        .navbar .nav{
+            list-style-type: none;
+        }
+
+        .navbar .nav .nav-items:nth-child(1){
+            margin-right: 1.5rem;
+        }
+
+        .navbar .nav .nav-items a{
+            color: #fff;
+            text-decoration: none;
+            outline: none;
+            font-size: 1rem;
+            padding: .5rem 1rem;
+            border: none;
+            border: 1.5px solid #fff;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .navbar .nav .nav-items a:hover{
+            background: #fff;
+            color: #333;
+            transition: all .3s ease-in-out;
+        }
+
+        .navbar .nav .nav-items a.client-list-btn{
+            border: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease-out;
+        }
+
+        .navbar .nav .nav-items a.client-list-btn:hover{
+            border: none;
+            border-bottom: 2px solid #fff;
+            border-radius: 0;
+            background: none;
+            color: #fff;
+            transition: all 0.2s ease-in;
+        }
+
+        .logout-icon,
+        .send-icon{
+            padding-right: 1rem;
+        }
+
+        .client-form{
+            width: 40%;
+            padding: 1rem;
+            background: #fff;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+            margin-top: 5rem;
+            transform: translateX(75%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label{
+            display: block;
+            font-weight: 500;
+
+        }
+
+        input{
+            width: 15rem;
+            border: none;
+            appearance: none;
+            border: 1px solid #333;
+            border-radius: 10px;
+            outline: none;
+            padding: .5rem 1rem;
+        }
+
+        textarea{
+            height: 5rem;
+            border: none;
+            appearance: none;
+            border: 1px solid #333;
+            border-radius: 10px;
+            outline: none;
+            padding: .5rem 1rem;
+        }
+
+        .btn{
+            margin-top: 1rem;
+            padding: .25rem 1rem;
+            width: 10rem;
+        }
+
+        .btn-succ{
+            background: #5bb445;
+            color: #fff;
+        }
+
+        .btn-succ:hover{
+            background: #4d963b;
+            color: #fff;
+            transition: all .3s ease-in-out;
+        }
+
+        .save-icon,
+        .list-icon{
+            padding-right: 1rem;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="logo">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/dataflow-dfgcorp/wp-content/uploads/2017/01/16145628/logo_new.png" alt="logo" width= "70px" height="70px"> 
+    </div>
+
+    <header>
+        <div class="head-title">
+            <h4>Client Form</h4>
+        </div>
+        <nav class="navbar">
+                <ul class="nav">
+                    <li class="nav-items">
+                        <a href="{% url 'infofill:data' %}" class="client-list-btn"><i class="fas fa-stream list-icon"></i>Client list</a>
+                    </li>
+                    <li class="nav-items">
+                        <a href="{% url 'infofill:logout1' %}"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
+                    </li>
+                </ul>
+            </nav>
+    </header>
+
+</header>
+
+<form method="post" action="" class="client-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-succ"><i class="fas fa-save save-icon"></i>Save</button><br><br>
+</form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login for UAT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/8aa13c88ab.js"></script>
+
+    <style>
+            html,
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            /* overflow-x: hidden; */
+        }
+
+        .logo{
+            background-color: #fff;
+            color: #fff;
+            padding: .5rem 2rem;
+        }
+
+        header{
+            background-color: #e7692f;
+            color: #fff;
+            padding: .5rem 2rem;
+        }
+
+
+        .login-form{
+            background: #fff;
+            padding: 2rem 0rem;
+            width: 50%;
+            transform: translate(45%, 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+        }
+
+        .btn{
+            margin-top: 1rem;
+            padding: .25rem 1rem;
+            width: 10rem;
+        }
+
+        .btn-prim{
+            background: #e7692f;
+            color: #fff;
+        }
+
+        .btn-prim:hover{
+            background: #f05b17;
+            color: #fff;
+            transition: all .3s ease-in-out;
+        }
+
+        .login-icon{
+            padding-right: 1rem;
+        }
+
+        label{
+            display: block;
+            font-weight: 500;
+        }
+
+        input{
+            width: 15rem;
+            border: none;
+            appearance: none;
+            border: 1px solid #333;
+            border-radius: 10px;
+            outline: none;
+            padding: .5rem 1rem;
+        }
+    </style>
+
+</head>
+<body>
+
+        <div class="logo">
+            <img src="https://s3-ap-southeast-1.amazonaws.com/dataflow-dfgcorp/wp-content/uploads/2017/01/16145628/logo_new.png" alt="logo" width= "70px" height="70px"> 
+        </div>
+    
+        <header>
+            <div class="heading">
+                <h4 class="nav-title">UAT Login</h4>
+            </div>
+        </header>
+
+<form method="post" action="" class="login-form">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-prim"><i class="fas fa-sign-in-alt login-icon"></i>Login</button>
+</form>
+</body>
+</html>

@@ -9,15 +9,33 @@
 
 
     <style>
+        html,
         body{
-            overflow-x: hidden;
-            background: #e7e7e7;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            /* overflow-x: hidden; */
+            background: #fff;
+        }
+
+        .logo{
+            background-color: #fff;
+            color: #fff;
+            padding: .5rem 2rem;
         }
 
         header{
             display: flex;
             background: #e7692f;
             color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 80px;
+            left: 0;
         }
 
         .head-title{
@@ -49,7 +67,7 @@
 
         .navbar .nav .nav-items a.log-li{
             border: 1.5px solid #fff;
-            /* border-radius: 10px; */
+            border-radius: 10px;
             font-weight: 500;
         }
 
@@ -63,17 +81,31 @@
             transition: all .3s ease-in-out;
         }
 
+        .add-btn{
+            border-bottom: 2px solid transparent;
+            transition: all .3s ease-in-out;
+        }
+
+        .add-btn:hover{
+            border-bottom: 2px solid #fff;
+            transition: border .3s ease-in-out;
+        }
+
         .cont{
-            margin-top: 1rem;
+            margin-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .client-details{
             font-size: .95rem;
-            border: 4px solid #e7692f;
+            border: 4px solid #9c9c9c;
         }
 
         .client-details tr th{
-            background: #e7692f;
+            background: #9c9c9c;
             color: #fff;
             font-weight: 600;
         }
@@ -82,55 +114,60 @@
 
 </head>
 <body>
-<header>
-    <div class="head-title">
-        <h4>Client List</h4>
+
+    <div class="logo">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/dataflow-dfgcorp/wp-content/uploads/2017/01/16145628/logo_new.png" alt="logo" width= "70px" height="70px"> 
     </div>
-    <nav class="navbar">
-        <ul class="nav">
-            <li class="nav-items">
-                <a href="{% url 'infofill:form' %}" >
-                    <i class="fas fa-plus"></i>
-                    Add new clients</a>
-            </li>
-            <li class="nav-items">
-                <a href="{% url 'infofill:logout1' %}" class="log-li">Logout</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="container-fluid cont">
-    <table border="2px" class="client-details" cellpadding="4">
-        <tr>
-        <th>Cient name</th>
-        <th>Request Synopsis</th>
-        <th>request receive date</th>
-        <th>Target launch date</th>
-        <th>Estimated Date</th>
-        <th>Actual live date</th>
-        <th>Current status</th>
-        <th>Remarks</th>
-        <th>Action by Sales Approver</th>
-        <th>Action</th>
-<!--        <th>Select action</th>-->
-      </tr>
-        {% for i in data %}
+
+    <header>
+        <div class="head-title">
+            <h4>Client List</h4>
+        </div>
+        <nav class="navbar">
+            <ul class="nav">
+                <li class="nav-items add-btn">
+                    <a href="{% url 'infofill:form' %}" >
+                        <i class="fas fa-plus"></i>
+                        Add new clients</a>
+                </li>
+                <li class="nav-items">
+                    <a href="{% url 'infofill:logout1' %}" class="log-li"><i class="fas fa-sign-out-alt logout-icon"></i>Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container-fluid cont">
+        <table border="2px" class="client-details" cellpadding="4">
             <tr>
-                <td>{{i.client_name}}</td>
-                <td>{{i.request_synopsis}}</td>
-                <td>{{i.request_created_date}}</td>
-                <td>{{i.target_launch_date}}</td>
-                <td>{{i.estimated_date}}</td>
-                <td>{{i.actual_live_date}}</td>
-                <td>{{i.current_status}}</td>
-                <td>{{i.remarks}}</td>
-                <td>{{i.approval}}</td>
-                <td>{{i.action}}</td>
-<!--                <td><a href="/admin/infofill/fillup/{{i.id}}/change/">action</a></td>-->
-            </tr>
-        {% endfor %}
-    </table>
-</div>
-{{days}}
+            <th>Client name</th>
+            <th>Request Synopsis</th>
+            <th>Request receive date</th>
+            <th>Target launch date</th>
+            <th>Estimated Date</th>
+            <th>Actual live date</th>
+            <th>Current status</th>
+            <th>Remarks</th>
+            <th>Action by Sales Approver</th>
+            <th>Action</th>
+    <!--        <th>Select action</th>-->
+        </tr>
+            {% for i in data %}
+                <tr>
+                    <td>{{i.client_name}}</td>
+                    <td>{{i.request_synopsis}}</td>
+                    <td>{{i.request_created_date}}</td>
+                    <td>{{i.target_launch_date}}</td>
+                    <td>{{i.estimated_date}}</td>
+                    <td>{{i.actual_live_date}}</td>
+                    <td>{{i.current_status}}</td>
+                    <td>{{i.remarks}}</td>
+                    <td>{{i.approval}}</td>
+                    <td>{{i.action}}</td>
+    <!--                <td><a href="/admin/infofill/fillup/{{i.id}}/change/">action</a></td>-->
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {{days}}
 </body>
 </html>
