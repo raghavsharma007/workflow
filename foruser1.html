@@ -17,6 +17,9 @@
         .logo{
             background-color: #fff;
             color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
             padding: .5rem 2rem;
         }
 
@@ -63,17 +66,13 @@
 
         .navbar .nav .nav-items a:hover{
             background: #fff;
-            color: #333;
+            color: #e7692f;
             transition: all .3s ease-in-out;
         }
 
         .logout-icon,
         .send-icon{
             padding-right: 1rem;
-        }
-
-        .cont{
-            margin-top: 1rem;
         }
 
         .client-details{
@@ -94,17 +93,32 @@
 
         .approval-form .btn:nth-child(1){
             color: #5db85d;
+            border: 2px solid transparent;
+            padding: 0.25rem;
+            border-radius: 1000px;
+            transition: border 0.3s ease-out;
         }
 
         .approval-form .btn:nth-child(1):hover{
+            color: #5db85d;
+            border: 2px solid #5db85d;
+            transition: border 0.3s ease-in;
         }
 
         .approval-form .btn:nth-child(2){
             color: #fd3e3e;
+            border: 2px solid transparent;
+            padding: 0.2rem 0.33rem;
+            border-radius: 1000px;
+            transition: border 0.3s ease-out;
+        }
+
+        .approval-form .btn:nth-child(2):hover{
+            border: 2px solid #fd3e3e;
         }
 
         .cont{
-            margin-top: 5rem;
+            margin-top: 10rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -126,7 +140,7 @@
 
         .btn-mail:hover{
             text-decoration: none;
-            color: #333;
+            color: #e7692f;            
             background: none;
             transition: all .3s ease-in-out;
         }

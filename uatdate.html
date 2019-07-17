@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/8aa13c88ab.js"></script>
 
     <style>
+
         html,
         body{
             margin: 0;
@@ -15,13 +16,15 @@
         }
 
         body{
-            /* overflow-x: hidden; */
             background: #fff;
         }
 
         .logo{
             background-color: #fff;
             color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
             padding: .5rem 2rem;
         }
 
@@ -68,7 +71,7 @@
 
         .navbar .nav .nav-items a:hover{
             background: #fff;
-            color: #333;
+            color: #e7692f;
             transition: all .3s ease-in-out;
         }
 
@@ -78,7 +81,7 @@
         }
 
         .cont{
-            margin-top: 5rem;
+            margin-top: 10rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -102,9 +105,28 @@
             border: none;
             background: none;
             border: 1px solid #333;
-            padding: 0 .5rem;
             border-radius: 10px;
             width: 10rem;
+            appearance: none;
+            outline: none;
+            margin-right: .5rem;
+        }
+
+        input[type='date']::-webkit-inner-spin-button { 
+            display: none; 
+        }
+
+        input[type='date']::-webkit-datetime-edit-text {
+            padding: 0 0.3em; 
+        }
+
+        input[type='date']::-webkit-datetime-edit {
+            padding: 0.2em 1em; 
+        }
+
+        input[type='date']::-webkit-calendar-picker-indicator { 
+            background: none;
+            color: #e7692f;
         }
 
         .btn-save{
@@ -112,12 +134,15 @@
             appearance: none;
             background: none;
             color: #6382d8;
-            transition: all 0.2s ease-out;
+            border: 2px solid transparent;
+            padding: 0.45rem .5rem;
+            border-radius: 100px;
+            transition: border 0.2s ease-out;
         }
 
         .btn-save:hover{
-            color: #4d6bbd;
-            transition: all 0.2s ease-in;
+            border: 2px solid #6382d8;
+            transition: border 0.2s ease-in;
         }
         
         .btn-mail{
@@ -135,7 +160,7 @@
 
         .btn-mail:hover{
             text-decoration: none;
-            color: #333;
+            color: #e7692f;
             background: none;
             transition: all .3s ease-in-out;
         }
