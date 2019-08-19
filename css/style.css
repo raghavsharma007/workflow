@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Assistant:300,400,600,700&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
+body{
+    margin: 0;
+    font-family: 'Montserrat', 'Assistant', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    overflow-y: hidden;
+}
+
+/*---------------- Home CSS ----------------*/
+
+.btext{
+    color: #f9f3f4;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 100%;
+    line-height: 0.4em;
+}
+
+h1{
+    font-size: 50px;
+}
+
+.btn{
+    color: #fff;
+    text-decoration: none;
+    border: #ccc 1px solid;
+    padding: 10px 15px;
+    border-radius: 8px;
+    line-height: 4em;
+}
+
+.btn:hover{
+    color: #b19295;
+    border: #fff 1px solid;
+}
+
+#particles-js{
+    /* background-image: url('image1.jpg'); */
+    background: rgb(251, 168, 168);
+    background: linear-gradient(65deg, rgb(251, 168, 168) 0%, rgb(251, 129, 6) 100%);
+    height: 100vh;
+}
+
+.google-button {
+    height: 40px;
+    cursor: pointer;
+    border-width: 0;
+    background: white;
+    color: #737373;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+    transition-property: background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    font-family: 'Assistant', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.google-button:focus, .google-button:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.google-button:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+}
+
+.google-button__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px 0 8px 8px;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+}
+
+.google-button__icon--plus {
+    width: 27px;
+}
+
+.google-button__text {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Assistant', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*---------------- Home CSS End ----------------*/
+
+/*---------------- Radio Button CSS ----------------*/
+
+.radio {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+}
+.radio .label {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #60666d;
+    border-radius: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+.radio .label:after {
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: linear-gradient(to left, #f07e62, #e78544);
+    transform: scale(0);
+    transition: all 0.2s ease;
+    opacity: 0.08;
+    pointer-events: none;
+}
+.radio:hover .label:after {
+    transform: scale(3.6);
+}
+
+input[type="radio"]:checked + .label {
+    border-color: #e78544;
+    border-color: linear-gradient(to left, #f07e62, #e78544);
+    background: #e78544;
+}
+
+input[type="radio"]:checked + .label:after {
+    transform: scale(1);
+    transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
+    opacity: 1;
+}
+  
+.hidden{
+    display: none;
+}
+
+/*---------------- Radio Button CSS End----------------*/
+
+/*---------------- Notifier ----------------*/
+
+.ajs-message.ajs-success.ajs-visible {
+    font-family: 'Montserrat';
+    font-size: 1em;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(99, 192, 121, 0.5);
+}
+
+/*---------------- Notifier End ----------------*/
+
+/*---------------- Nice Select End ----------------*/
+
+.nice-select {
+    background: none !important;
+    border: none !important;
+    border: 2px solid #ffffff61 !important;
+}
+
+.nice-select:after {
+    border-bottom: 2px solid #ffffff !important;
+    border-right: 2px solid #fff !important;
+}
+
+.nice-select .list{
+    background: #616161 !important;
+    height: 400px !important;
+    overflow-y: scroll !important;
+}
+
+.nice-select .option.focus, .nice-select .option.selected.focus, .nice-select .option:hover {
+    background-color: #8c8c8c !important;
+}
+
+::-webkit-scrollbar {
+width: 8px;
+background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+min-height: 50px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+background-color: #666;
+}
+
+::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*---------------- Nice Select End ----------------*/
+
+/*---------------- Client Form ----------------*/
+
+.main{
+    background: linear-gradient(4deg, rgba(193, 193, 193, 0.01) 0%, rgba(193, 193, 193, 0.01) 
+                                50%,rgba(179, 179, 179, 0.01) 50%, rgba(179, 179, 179, 0.01) 100%),
+                linear-gradient(104deg, rgba(6, 6, 6, 0.02) 0%, rgba(6, 6, 6, 0.02) 50%,
+                              rgba(9, 9, 9, 0.02) 50%, rgba(9, 9, 9, 0.02) 100%),
+                linear-gradient(167deg, rgba(37, 37, 37, 0.01) 0%, rgba(37, 37, 37, 0.01) 50%,
+                              rgba(219, 219, 219, 0.01) 50%, rgba(219, 219, 219, 0.01) 100%),
+                linear-gradient(59deg, rgba(176, 176, 176, 0.03) 0%, rgba(176, 176, 176, 0.03) 50%,
+                              rgba(133, 133, 133, 0.03) 50%, rgba(133, 133, 133, 0.03) 100%),
+                linear-gradient(180deg, rgba(30, 30, 30, 0.02) 0%, rgba(30, 30, 30, 0.02) 50%,
+                              rgba(252, 252, 252, 0.02) 50%, rgba(252, 252, 252, 0.02) 100%),
+                linear-gradient(228deg, rgba(219, 219, 219, 0.02) 0%, rgba(219, 219, 219, 0.02) 50%,
+                              rgba(107, 107, 107, 0.02) 50%, rgba(107, 107, 107, 0.02) 100%),
+                linear-gradient(182deg, rgba(242, 242, 242, 0.02) 0%, rgba(242, 242, 242, 0.02) 50%,
+                              rgba(177, 177, 177, 0.02) 50%, rgba(177, 177, 177, 0.02) 100%),
+                linear-gradient(340deg, rgba(51, 51, 51, 0.03) 0%, rgba(51, 51, 51, 0.03) 50%,
+                              rgba(176, 176, 176, 0.03) 50%, rgba(176, 176, 176, 0.03) 100%),
+                linear-gradient(90deg, rgba(248, 95, 92, 0.8),rgba(238, 144, 21, 0.8));
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whole{
+    display: flex;
+    width: 75%;
+    height: 85vh;
+    margin: 4% auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.firstSect{
+    flex: 1;
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+    background: linear-gradient(65deg, rgb(185, 185, 185) 0%, rgb(46, 46, 46) 100%);
+    background: #b1929530;
+    color: #fff;
+    text-align: center;
+}
+
+.firstSect div{
+    position: relative;
+    top: 35%;
+}
+
+.secondSect{
+    flex: 3;
+    height: 100%;
+    border-radius: 0px 10px 10px 0px;
+    background: #ffffff45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientForm{
+    width: 80%;
+    color: #fff;
+}
+
+.clientForm div{
+    display: flex;
+    flex-direction: column;
+}
+
+.ctype-div,
+.existing-div,
+.new-div,
+.target,
+.request,
+.remark-box {
+    margin-bottom: 1.5em;
+}
+
+.titleLabel{
+    font-size: 1em;
+    display: block;
+    margin-bottom: .5em;
+    color: #fff;
+}
+
+.ctype-div {
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: 'one one one two two . three three .';
+}
+
+.ctype-div .ctype-label{
+    grid-area: one;
+}
+
+.ctype-div div:nth-of-type(1){
+    grid-area: two;
+}
+
+.ctype-div div:nth-of-type(2){
+    grid-area: three;
+}
+
+.ctype-div .radio .label{
+    border: 2px solid #fff;
+}
+
+textarea[name="request"],
+textarea[name="reqRemark"],
+.date,
+#newClient{
+    width: 95%;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid #ffffff61;
+    height: 42px;
+    line-height: 40px;
+    outline: none;
+    appearance: none;
+    color: #fff;
+    padding: 0px 20px;
+    font-family: 'Montserrat', 'Assitant', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::placeholder{
+    color: #e4e4e4;
+}
+
+textarea[name="request"]:focus,
+textarea[name="reqRemark"]:focus,
+.date:focus,
+#newClient:focus{
+    border: 2px solid #fff;
+}
+
+.date::-webkit-inner-spin-button, 
+.date::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.date::-webkit-calendar-picker-indicator {
+    background: none;
+    width: 15px;
+}
+
+.btn-submit{
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    color: #fff;
+    background: #11b34f;
+    font-size: 1em;
+    padding: 0.5em 2em;
+    width: 150px;
+    float: right;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-submit:hover{
+    background: #0fc755;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/*---------------- Client Form End----------------*/
+
+
+/*---------------- Date Picker ----------------*/
+
+.input.date.calendar-picker {
+    position: relative;
+    width: 95% !important;
+    background: none !important;
+}
+
+.input.date.calendar-picker input{
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    border: 2px solid #ffffff61 !important;
+}
+
+.button-group {
+    position: absolute;
+    right: 0;
+}
+
+/*---------------- Date Picker End ----------------*/
+
+
